@@ -1,8 +1,15 @@
 import React from "react";
 import "./App.css";
+import NavBar from "./Components/NavBar/NavBar";
 
 function App() {
-  return <div className="text-4xl text-red-500">App</div>;
+  return (
+    <div>
+      <nav>
+        <NavBar />
+      </nav>
+    </div>
+  );
 }
 
 export default App;
