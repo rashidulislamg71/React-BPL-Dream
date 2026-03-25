@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    max-width: 1400px;
+    margin: 0 auto;
+}
