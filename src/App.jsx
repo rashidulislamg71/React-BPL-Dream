@@ -2,7 +2,8 @@ import React, { Suspense } from "react";
 import "./App.css";
 import NavBar from "./Components/NavBar/NavBar";
 import Hero from "./Components/HeroBanner/Hero";
-import Players from "./Components/Players/Players";
+
+import AvailablePlayers from "./Components/Players/AvailablePlayers";
 
 const playerPromise = fetch("/data.json").then((res) => res.json());
 
@@ -21,7 +22,7 @@ function App() {
             <span className="loading loading-spinner loading-lg"></span>
           }
         >
-          <Players playerPromise={playerPromise} />
+          <AvailablePlayers playerPromise={playerPromise} />
         </Suspense>
       </section>
     </div>
