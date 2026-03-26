@@ -1,9 +1,29 @@
 import React, { useState } from "react";
 import { FaFlag, FaUserAlt, FaStar } from "react-icons/fa";
 
-function PlayerCard({ player }) {
+function PlayerCard({
+  player,
+  setCoin,
+  coin,
+  selectedPlayers,
+  setSelectedPlayers,
+}) {
   const [isSelected, setIsSelected] = useState(false);
 
+  const btnHandle = (player) => {
+    if (!isSelected) {
+      if (coin < player.price) {
+        alert("Not enough coin!");
+        return;
+      }
+      setCoin((prev) => prev - player.price);
+      setIsSelected(true);
+    } else {
+      setCoin((prev) => prev + player.price);
+      setIsSelected(false);
+    }
+    setSelectedPlayers((prev) => [...prev, player]);
+  };
   return (
     <div className="bg-white shadow-lg rounded-2xl overflow-hidden  m-4 w-full md:w-72 lg:w-80">
       {/* Player Image */}
@@ -53,7 +73,7 @@ function PlayerCard({ player }) {
         <div className="flex justify-between items-center mt-2">
           <p className="font-bold text-lg text-gray-800">${player.price}</p>
           <button
-            onClick={() => setIsSelected(!isSelected)}
+            onClick={() => btnHandle(player)}
             disabled={isSelected}
             className=" btn "
           >

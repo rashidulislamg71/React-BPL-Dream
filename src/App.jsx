@@ -8,7 +8,7 @@ import AvailablePlayers from "./Components/Players/AvailablePlayers";
 const playerPromise = fetch("/data.json").then((res) => res.json());
 
 function App() {
-  const [coin, setCoin] = useState(50000);
+  const [coin, setCoin] = useState(5000000);
 
   return (
     <div>
@@ -24,7 +24,11 @@ function App() {
             <span className="loading loading-spinner loading-lg"></span>
           }
         >
-          <AvailablePlayers playerPromise={playerPromise} />
+          <AvailablePlayers
+            playerPromise={playerPromise}
+            setCoin={setCoin}
+            coin={coin}
+          />
         </Suspense>
       </section>
     </div>

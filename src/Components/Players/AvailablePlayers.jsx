@@ -2,16 +2,22 @@ import React, { use, useState } from "react";
 import Players from "./Players";
 import SelectedPlayers from "./SelectedPlayers";
 
-function AvailablePlayers({ playerPromise }) {
+function AvailablePlayers({ playerPromise, setCoin, coin }) {
   const [available, setAvailable] = useState("available");
+  const [selectedPlayers, setSelectedPlayers] = useState([]);
+
   const player = use(playerPromise);
+
   return (
     <div className="px-10">
       <div className="flex justify-between items-center py-5 mt-10 mb-5 ">
         {available === "available" ? (
           <h2 className="font-bold text-3xl ">Available Players</h2>
         ) : (
-          <h2 className="font-bold text-3xl ">Selected Players (2/7) </h2>
+          <h2 className="font-bold text-3xl ">
+            Selected Players ({`${selectedPlayers.length}/${player.length}`}
+            ){" "}
+          </h2>
         )}
 
         <div className="">
@@ -31,9 +37,18 @@ function AvailablePlayers({ playerPromise }) {
       </div>
 
       {available === "available" ? (
-        <Players player={player} />
+        <Players
+          player={player}
+          setCoin={setCoin}
+          coin={coin}
+          selectedPlayers={selectedPlayers}
+          setSelectedPlayers={setSelectedPlayers}
+        />
       ) : (
-        <SelectedPlayers />
+        <SelectedPlayers
+          selectedPlayers={selectedPlayers}
+          setSelectedPlayers={setSelectedPlayers}
+        />
       )}
     </div>
   );
