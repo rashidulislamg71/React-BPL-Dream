@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaFlag, FaUserAlt, FaStar } from "react-icons/fa";
 
 function PlayerCard({ player }) {
+  const [isSelected, setIsSelected] = useState(false);
+
   return (
-    <div className="bg-white shadow-lg rounded-2xl overflow-hidden  m-4 hover:scale-105 transition-transform duration-300 w-full md:w-72 lg:w-80">
+    <div className="bg-white shadow-lg rounded-2xl overflow-hidden  m-4 w-full md:w-72 lg:w-80">
       {/* Player Image */}
       <div className="h-52 w-full ">
         <img
@@ -50,8 +52,12 @@ function PlayerCard({ player }) {
         {/* Price & Button */}
         <div className="flex justify-between items-center mt-2">
           <p className="font-bold text-lg text-gray-800">${player.price}</p>
-          <button className=" cursor-pointer bg-blue-500 hover:bg-blue-600 text-white px-4 py-1 rounded-lg transition">
-            Choose Player
+          <button
+            onClick={() => setIsSelected(!isSelected)}
+            disabled={isSelected}
+            className=" btn "
+          >
+            {isSelected ? "Selected" : "Choose Players"}
           </button>
         </div>
       </div>
