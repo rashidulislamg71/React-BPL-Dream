@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState } from "react";
 import "./App.css";
 import NavBar from "./Components/NavBar/NavBar";
 import Hero from "./Components/HeroBanner/Hero";
@@ -8,10 +8,12 @@ import AvailablePlayers from "./Components/Players/AvailablePlayers";
 const playerPromise = fetch("/data.json").then((res) => res.json());
 
 function App() {
+  const [coin, setCoin] = useState(50000);
+
   return (
     <div>
       <nav>
-        <NavBar />
+        <NavBar coins={coin} />
       </nav>
       <section>
         <Hero />

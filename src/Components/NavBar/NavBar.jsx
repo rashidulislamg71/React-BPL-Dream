@@ -2,7 +2,7 @@ import React from "react";
 import Links from "../../Utils/Links";
 
 import logo from "../../assets/logo.png";
-import coin from "../../assets/dollar_1.png";
+import coinImg from "../../assets/dollar_1.png";
 
 const navItems = [
   { id: 1, name: "Home", path: "/" },
@@ -11,7 +11,7 @@ const navItems = [
   { id: 4, name: "Schedules", path: "/schedules" },
 ];
 
-function NavBar() {
+function NavBar({coins}) {
   return (
     <div>
       <div className="navbar bg-base-100 shadow-sm">
@@ -31,8 +31,8 @@ function NavBar() {
         </div>
         <div className=" ml-10">
           <button className="btn px-5  font-bold flex">
-            0 Coins
-            <img src={coin} alt="coins" />
+            {coins} Coins
+            <img src={coinImg} alt="coins" />
           </button>
         </div>
       </div>
