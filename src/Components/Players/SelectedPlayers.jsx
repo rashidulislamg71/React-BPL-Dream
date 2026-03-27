@@ -3,6 +3,11 @@ import { FiDelete } from "react-icons/fi";
 function SelectedPlayers({ setSelectedPlayers, selectedPlayers }) {
   console.log(selectedPlayers);
 
+  const deleteSelectedPlayer = (player) => {
+    const playerDelete = selectedPlayers.filter((data) => data !== player);
+    setSelectedPlayers(playerDelete);
+  };
+
   return (
     <>
       <div className="flex flex-col gap-5 justify-center">
@@ -22,7 +27,10 @@ function SelectedPlayers({ setSelectedPlayers, selectedPlayers }) {
               </div>
               <div className="card-body">
                 <div className="card-actions justify-end">
-                  <button className="btn btn-primary">
+                  <button
+                    onClick={() => deleteSelectedPlayer(player)}
+                    className="btn btn-primary"
+                  >
                     <FiDelete />
                   </button>
                 </div>

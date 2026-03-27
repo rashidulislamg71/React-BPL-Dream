@@ -31,7 +31,7 @@ function AvailablePlayers({ playerPromise, setCoin, coin }) {
             onClick={() => setAvailable("selected")}
             className={`btn rounded-l-none  ${available === "selected" ? "bg-amber-400 text-white" : ""} `}
           >
-            Selected
+            Selected {selectedPlayers.length}
           </button>
         </div>
       </div>
