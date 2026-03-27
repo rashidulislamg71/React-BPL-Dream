@@ -7,7 +7,7 @@
     "rating": 9.8,
     "battingStyle": "Right-hand bat",
     "bowlingStyle": "Right-arm medium",
-    "price": 1500000,
+    "price": 1000,
     "img": "https://i.ibb.co.com/Q369d5W1/image.jpg"
   },
   {
@@ -18,7 +18,7 @@
     "rating": 9.5,
     "battingStyle": "Right-hand bat",
     "bowlingStyle": "Right-arm offbreak",
-    "price": 1400000,
+    "price": 400,
     "img": "https://i.ibb.co.com/PZ4ZqYtW/image.jpg"
   },
   {
@@ -29,7 +29,7 @@
     "rating": 9.7,
     "battingStyle": "Left-hand bat",
     "bowlingStyle": "Left-arm orthodox",
-    "price": 1300000,
+    "price": 500,
     "img": "https://i.ibb.co.com/bMYzz2Pm/image.jpg"
   },
   {

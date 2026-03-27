@@ -8,7 +8,7 @@ import AvailablePlayers from "./Components/Players/AvailablePlayers";
 const playerPromise = fetch("/data.json").then((res) => res.json());
 
 function App() {
-  const [coin, setCoin] = useState(5000000);
+  const [coin, setCoin] = useState(5000);
 
   return (
     <div>

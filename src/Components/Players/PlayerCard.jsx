@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { FaFlag, FaUserAlt, FaStar } from "react-icons/fa";
 
 function PlayerCard({
@@ -8,22 +7,23 @@ function PlayerCard({
   selectedPlayers,
   setSelectedPlayers,
 }) {
-  const [isSelected, setIsSelected] = useState(false);
+  const isSelected = selectedPlayers.some((data) => data.id === player.id);
 
   const btnHandle = (player) => {
-    if (!isSelected) {
-      if (coin < player.price) {
-        alert("Not enough coin!");
-        return;
-      }
-      setCoin((prev) => prev - player.price);
-      setIsSelected(true);
-    } else {
-      setCoin((prev) => prev + player.price);
-      setIsSelected(false);
+    // check if already selected
+    if (isSelected) {
+      alert("Already selected player!");
+      return;
     }
+
+    if (coin < player.price) {
+      alert("Not enough coin!");
+      return;
+    }
+    setCoin((prev) => prev - player.price);
     setSelectedPlayers((prev) => [...prev, player]);
   };
+
   return (
     <div className="bg-white shadow-lg rounded-2xl overflow-hidden  m-4 w-full md:w-72 lg:w-80">
       {/* Player Image */}

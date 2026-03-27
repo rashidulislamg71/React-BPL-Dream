@@ -48,6 +48,8 @@ function AvailablePlayers({ playerPromise, setCoin, coin }) {
         <SelectedPlayers
           selectedPlayers={selectedPlayers}
           setSelectedPlayers={setSelectedPlayers}
+          setCoin={setCoin}
+          coin={coin}
         />
       )}
     </div>

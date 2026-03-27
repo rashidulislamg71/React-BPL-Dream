@@ -1,11 +1,19 @@
 import { FiDelete } from "react-icons/fi";
 
-function SelectedPlayers({ setSelectedPlayers, selectedPlayers }) {
+function SelectedPlayers({
+  setSelectedPlayers,
+  selectedPlayers,
+  coin,
+  setCoin,
+}) {
   console.log(selectedPlayers);
 
   const deleteSelectedPlayer = (player) => {
-    const playerDelete = selectedPlayers.filter((data) => data !== player);
+    const playerDelete = selectedPlayers.filter(
+      (selectedPlayer) => selectedPlayer.id !== player.id,
+    );
     setSelectedPlayers(playerDelete);
+    setCoin((prev) => prev + player.price);
   };
 
   return (
@@ -23,7 +31,8 @@ function SelectedPlayers({ setSelectedPlayers, selectedPlayers }) {
               </figure>
               <div className="flex flex-col justify-center ml-2">
                 <h2 className="card-title">{player.playerName}</h2>
-                <p>{player.playerType}</p>
+                <p className="font-semibold text-sm">{player.playerType}</p>
+                <p className="font-bold text-sm">Price: ${player.price}</p>
               </div>
               <div className="card-body">
                 <div className="card-actions justify-end">
