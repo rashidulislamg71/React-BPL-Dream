@@ -1,4 +1,5 @@
 import { FaFlag, FaUserAlt, FaStar } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 function PlayerCard({
   player,
@@ -22,6 +23,7 @@ function PlayerCard({
     }
     setCoin((prev) => prev - player.price);
     setSelectedPlayers((prev) => [...prev, player]);
+    toast(`Successfully to buy ${player.playerName} for  $${player.price}  !`);
   };
 
   return (

@@ -4,6 +4,7 @@ import NavBar from "./Components/NavBar/NavBar";
 import Hero from "./Components/HeroBanner/Hero";
 
 import AvailablePlayers from "./Components/Players/AvailablePlayers";
+import { ToastContainer } from "react-toastify";
 
 const playerPromise = fetch("/data.json").then((res) => res.json());
 
@@ -31,6 +32,8 @@ function App() {
           />
         </Suspense>
       </section>
+
+     <ToastContainer />
     </div>
   );
 }
