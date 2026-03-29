@@ -5,6 +5,7 @@ import Hero from "./Components/HeroBanner/Hero";
 
 import AvailablePlayers from "./Components/Players/AvailablePlayers";
 import { ToastContainer } from "react-toastify";
+import Footer from "./Components/Footer/Footer";
 
 const playerPromise = fetch("/data.json").then((res) => res.json());
 
@@ -34,6 +35,7 @@ function App() {
       </section>
 
      <ToastContainer />
+     <Footer />
     </div>
   );
 }
